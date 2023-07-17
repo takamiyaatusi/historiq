@@ -1,0 +1,23 @@
+{
+  "name": "@takamiyaatusi/historiq",
+  "version": "0.1.0",
+  "description": "TypeScript Package for History Management. You can go back and forth in history.",
+  "main": "index.js",
+  "files": ["dist", "src"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takamiyaatusi/historiq.git"
+  },
+  "author": "takamiyaatusi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takamiyaatusi/historiq/issues"
+  },
+  "homepage": "https://github.com/takamiyaatusi/historiq#readme",
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
