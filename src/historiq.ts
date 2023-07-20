@@ -33,6 +33,12 @@ class Historiq<T> {
         }
         return this;
     }
+    reset() {
+        this.data = []
+        this.topIdx = 0
+        this.currentIdx = 0
+        this.defaultValue = _defaultValue
+    }
     // 現在の履歴を取得
     getCurrent() {
         this.guardNoDefault()
