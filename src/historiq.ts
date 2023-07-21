@@ -115,6 +115,6 @@ class Historiq<T> {
     }
 }
 
-export default function historiq<T>(options: historiqOptions<T>) {
+export default function historiq<T>(options: Partial<historiqOptions<T>> = {}) {
     return new Historiq<T>(options)
 }

@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "description": "TypeScript Package for History Management. You can go back and forth in history.",
   "main": "index.js",
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -17,7 +21,10 @@
     "url": "https://github.com/takamiyaatusi/historiq/issues"
   },
   "homepage": "https://github.com/takamiyaatusi/historiq#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@types/jest": "^28.1.8",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.8",
     "typescript": "^5.1.6"
   }
 }
