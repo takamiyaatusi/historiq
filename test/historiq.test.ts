@@ -98,15 +98,45 @@ describe('add and overwrite', () => {
         expect(q.forward()).toBe(4)
     })
 })
+describe('empty means there is no history item without defaultValue.', () => {
+    const q = historiq<number>()
+    test('', () => {
+        q.init(1)
+        expect(q.isEmpty()).toBe(true)
+        q.add(2)
+        expect(q.isEmpty()).toBe(false)
+        expect(q.backward()).toBe(1)
+        expect(q.isEmpty()).toBe(false)
+        q.reset()
+        expect(q.isEmpty()).toBe(true)
+        q.init(3)
+        expect(q.isEmpty()).toBe(true)
+    })
+})
 
-// describe('options', () => {
-//     test('overwrite changes current value', () => {
-//         const q = historiq<number>({
-//             maxIdx: 3,
-//             errorAtOverMax: true,
-//         })
-//         q.init(1)
-//         q.add(2)
-//     })
 
-// })
+describe('options', () => {
+    test('over maxItem And Error', () => {
+        const q = historiq<number>({
+            maxItem: 3,
+            errorAtOverMax: true,
+        })
+        q.init(1)
+        q.add(2)
+        q.add(3)
+        expect(() => q.add(4)).toThrow()
+        expect(q.getCurrent()).toBe(3)
+    })
+
+    test('over maxItem And Not Error', () => {
+        const q = historiq<number>({
+            maxItem: 3,
+        })
+        q.init(1)
+        q.add(2)
+        q.add(3)
+        expect(() => q.add(4)).not.toThrow()
+        expect(q.getCurrent()).toBe(3)
+    })
+
+})

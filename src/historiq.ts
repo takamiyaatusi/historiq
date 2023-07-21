@@ -1,5 +1,5 @@
 type historiqOptions<T> = {
-    maxIdx: number
+    maxItem: number
     errorAtOverMax: boolean
     defaultValue?: T
 }
@@ -13,12 +13,12 @@ class Historiq<T> {
     private defaultValue: T | symbol = _defaultValue
 
     private options: historiqOptions<T> = {
-        maxIdx: Number.MAX_SAFE_INTEGER,
+        maxItem: Number.MAX_SAFE_INTEGER,
         errorAtOverMax: false,
     }
 
     constructor(options: Partial<historiqOptions<T>> = {}) {
-        this.options = { ...options, ...this.options }
+        this.options = {...this.options, ...options }
         if ("defaultValue" in this.options) {
             this.init(this.options.defaultValue as T)
         } else {
@@ -50,11 +50,11 @@ class Historiq<T> {
     }
     // 履歴を追加（frontはidxの位置まで巻き戻す）
     add(item: T) {
-        if (this.isMaxIdx()) {
+        if (this.isMaxItem()) {
             if (this.options.errorAtOverMax) {
-                throw new Error("Historiq: History index reached MaxIdx. You cannot add any more item!")
+                throw new Error("Historiq: History index reached maxItem. You cannot add any more item!")
             } else {
-                console.warn("Historiq: History index reached MaxIdx. You cannot add any more item!")
+                console.warn("Historiq: History index reached maxItem. You cannot add any more item!")
                 return;    
             }
         }
@@ -100,8 +100,8 @@ class Historiq<T> {
         return (this.currentIdx < this.topIdx);
     }
     // 
-    private isMaxIdx() {
-        return this.currentIdx === this.options.maxIdx
+    private isMaxItem() {
+        return this.currentIdx === this.options.maxItem - 1
     }
     // 
     private guardNoDefault() {
