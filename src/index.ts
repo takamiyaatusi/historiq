@@ -1,1 +1,3 @@
-// export * from "./historiq"
+import historiq from "./historiq"
+
+export default historiq

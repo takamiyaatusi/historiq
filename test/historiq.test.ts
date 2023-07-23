@@ -1,4 +1,4 @@
-import historiq from '../src/historiq'
+import historiq from '../src'
 
 describe('historiq must be initialized.', () => {
     const badQ = historiq<number>()
