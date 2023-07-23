@@ -91,9 +91,17 @@ class Historiq<T> {
     canBackward() {
         return (this.currentIdx > 0);
     }
+    // 後に戻れる回数
+    backwardItemCount() {
+        return this.currentIdx
+    }
     // 前に進めるか
     canForward() {
         return (this.currentIdx < this.topIdx);
+    }
+    // 先に進める回数
+    forwardItemCount() {
+        return this.topIdx - this.currentIdx
     }
     // 
     private isMaxItem() {
