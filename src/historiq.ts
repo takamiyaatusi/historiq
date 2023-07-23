@@ -42,11 +42,7 @@ class Historiq<T> {
     // 現在の履歴を取得
     getCurrent() {
         this.guardNoDefault()
-        let current = this.defaultValue;
-        if (!this.isEmpty()) {
-            current = this.data[this.currentIdx];
-        }
-        return current as T;
+        return this.data[this.currentIdx] as T;
     }
     // 履歴を追加（frontはidxの位置まで巻き戻す）
     add(item: T) {
@@ -55,7 +51,7 @@ class Historiq<T> {
                 throw new Error("Historiq: History index reached maxItem. You cannot add any more item!")
             } else {
                 console.warn("Historiq: History index reached maxItem. You cannot add any more item!")
-                return;    
+                return;
             }
         }
         this.guardNoDefault()
@@ -88,9 +84,9 @@ class Historiq<T> {
         this.data[this.currentIdx] = item;
     }
     // 履歴があるか
-    isEmpty() {
-        return (this.topIdx === 0);
-    }
+    // isEmpty() {
+    //     return (this.topIdx === 0);
+    // }
     // 後に戻れるか
     canBackward() {
         return (this.currentIdx > 0);

@@ -98,21 +98,21 @@ describe('add and overwrite', () => {
         expect(q.forward()).toBe(4)
     })
 })
-describe('empty means there is no history item without defaultValue.', () => {
-    const q = historiq<number>()
-    test('', () => {
-        q.init(1)
-        expect(q.isEmpty()).toBe(true)
-        q.add(2)
-        expect(q.isEmpty()).toBe(false)
-        expect(q.backward()).toBe(1)
-        expect(q.isEmpty()).toBe(false)
-        q.reset()
-        expect(q.isEmpty()).toBe(true)
-        q.init(3)
-        expect(q.isEmpty()).toBe(true)
-    })
-})
+// describe('empty means there is no history item without defaultValue.', () => {
+//     const q = historiq<number>()
+//     test('', () => {
+//         q.init(1)
+//         expect(q.isEmpty()).toBe(true)
+//         q.add(2)
+//         expect(q.isEmpty()).toBe(false)
+//         expect(q.backward()).toBe(1)
+//         expect(q.isEmpty()).toBe(false)
+//         q.reset()
+//         expect(q.isEmpty()).toBe(true)
+//         q.init(3)
+//         expect(q.isEmpty()).toBe(true)
+//     })
+// })
 
 
 describe('options', () => {
