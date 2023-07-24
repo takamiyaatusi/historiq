@@ -4,13 +4,12 @@ type historiqOptions<T> = {
     defaultValue?: T
 }
 
-const _defaultValue = Symbol("defaultValue")
-
 class Historiq<T> {
     private data: T[] = []
     private topIdx: number = 0;
     private currentIdx: number = 0;
-    private defaultValue: T | symbol = _defaultValue
+    private _defaultValue = Symbol("defaultValue")
+    private defaultValue: T | symbol = this._defaultValue
 
     private options: historiqOptions<T> = {
         maxItem: Number.MAX_SAFE_INTEGER,
@@ -27,7 +26,7 @@ class Historiq<T> {
     }
 
     init(defaultValue: T) {
-        if (this.defaultValue === _defaultValue) {
+        if (this.defaultValue === this._defaultValue) {
             this.data[0] = defaultValue
             this.defaultValue = defaultValue
         }
@@ -37,7 +36,7 @@ class Historiq<T> {
         this.data = []
         this.topIdx = 0
         this.currentIdx = 0
-        this.defaultValue = _defaultValue
+        this.defaultValue = this._defaultValue
     }
     // 現在の履歴を取得
     getCurrent() {
@@ -84,9 +83,6 @@ class Historiq<T> {
         this.data[this.currentIdx] = item;
     }
     // 履歴があるか
-    // isEmpty() {
-    //     return (this.topIdx === 0);
-    // }
     // 後に戻れるか
     canBackward() {
         return (this.currentIdx > 0);
@@ -115,7 +111,7 @@ class Historiq<T> {
     }
 
     private initialized(d: T | symbol): d is T {
-        return (d !== _defaultValue)
+        return (d !== this._defaultValue)
     }
 }
 
