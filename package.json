@@ -1,15 +1,16 @@
 {
   "name": "@takamiyaatusi/historiq",
   "version": "0.1.0",
-  "description": "TypeScript Package for History Management. You can go back and forth in history.",
-  "main": "index.js",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "description": "Package for Undo/Redo History Management",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.js",
+  "files": ["dist", "src", "README.md", "LICENSE"],
   "scripts": {
     "test": "npx jest",
-    "build": "npx tsc"
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "npx tsc -p tsconfig.cjs.json",
+    "build:esm": "npx tsc -p tsconfig.esm.json"
   },
   "repository": {
     "type": "git",
