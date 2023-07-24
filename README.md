@@ -57,5 +57,6 @@ while (stateQ.canBackward()) {
     console.log(s);
     //  => { page: 1, event: "click image" }
     //  => { page: 0, event: "click next page button" }
+    //  => { page: 0, event: null }
 }
 ```
