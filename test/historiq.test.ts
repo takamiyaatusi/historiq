@@ -93,6 +93,15 @@ describe('reset historiq', () => {
         expect(q.getCurrent()).toBe(4)
         expect(q.backward()).toBe(3)    
     })
+    test('reset() with value', () => {
+        q.init(1)
+        q.add(2)
+        expect(q.getCurrent()).toBe(2)
+        q.reset(3);
+        expect(() => q.add(4)).not.toThrow()
+        expect(q.getCurrent()).toBe(4)
+        expect(q.backward()).toBe(3)
+    })
 })
 
 describe('add and overwrite', () => {
