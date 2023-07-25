@@ -1,6 +1,6 @@
 {
   "name": "@takamiyaatusi/historiq",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "sideEffects": false,
   "description": "Package for Undo/Redo History Management",
   "main": "dist/cjs/index.js",
