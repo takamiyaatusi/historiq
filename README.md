@@ -60,3 +60,52 @@ while (stateQ.canBackward()) {
     //  => { page: 0, event: null }
 }
 ```
+
+# Other method
+
+```typescript
+const q2 = historiq<number>({
+    defaultValue: 1
+})
+// overwrite() method overwrite current value
+q2.add(2)
+console.log(q2.getCurrent()); // => 2
+q2.overwrite(3)
+console.log(q2.getCurrent()); // => 3
+console.log(q2.backward()); // => 1
+
+// reset() method clear all items. Instance must be init() again.
+q2.reset()
+// q.getCurrent() will be error, because q2 instance is not initialized
+q2.init(10)
+console.log(q2.getCurrent()); // => 10
+console.log(q2.canForward()); // => false
+console.log(q2.canBackward()); // => false
+
+// backwardItemCount() indicates the number of times you can backward().
+// if backwardItemCount() is 0, it is same as canBackward() is false.
+console.log(q2.backwardItemCount()); // => 0
+console.log(q2.canBackward()); // => false
+q2.add(11)
+console.log(q2.backwardItemCount()); // => 1
+console.log(q2.canBackward()); // => true
+q2.add(12)
+console.log(q2.backwardItemCount()); // => 2
+console.log(q2.canBackward()); // => true
+
+// forwardItemCount() indicates the number of times you can forward().
+// if forwardItemCount() is 0, it is same as canForward() is false.
+console.log(q2.forwardItemCount()); // => 0
+console.log(q2.canForward()); // => false
+q2.backward()
+console.log(q2.forwardItemCount()); // => 1
+console.log(q2.canForward()); // => true
+q2.backward()
+console.log(q2.forwardItemCount()); // => 2
+console.log(q2.canForward()); // => true
+// add() reset forwardItemCount.
+q2.add(13)
+console.log(q2.forwardItemCount()); // => 0
+console.log(q2.canForward()); // => false
+
+```
