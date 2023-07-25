@@ -81,6 +81,8 @@ q2.init(10)
 console.log(q2.getCurrent()); // => 10
 console.log(q2.canForward()); // => false
 console.log(q2.canBackward()); // => false
+// reset() with defaultValue. This is same as above
+q2.reset(10)
 
 // backwardItemCount() indicates the number of times you can backward().
 // if backwardItemCount() is 0, it is same as canBackward() is false.
