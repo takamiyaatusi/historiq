@@ -35,6 +35,7 @@
     "url": "https://github.com/takamiyaatusi/historiq/issues"
   },
   "homepage": "https://github.com/takamiyaatusi/historiq#readme",
+  "keywords": ["data structure", "history", "undo", "redo", "browser", "node"],
   "devDependencies": {
     "@types/jest": "^28.1.8",
     "jest": "^28.1.3",
