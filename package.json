@@ -1,6 +1,6 @@
 {
   "name": "@takamiyaatusi/historiq",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "sideEffects": false,
   "description": "Package for Undo/Redo History Management",
   "main": "dist/cjs/index.js",
@@ -35,7 +35,14 @@
     "url": "https://github.com/takamiyaatusi/historiq/issues"
   },
   "homepage": "https://github.com/takamiyaatusi/historiq#readme",
-  "keywords": ["data structure", "history", "undo", "redo", "browser", "node"],
+  "keywords": [
+    "data structure",
+    "history",
+    "undo",
+    "redo",
+    "browser",
+    "node"
+  ],
   "devDependencies": {
     "@types/jest": "^28.1.8",
     "jest": "^28.1.3",
