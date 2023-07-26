@@ -111,3 +111,9 @@ console.log(q2.forwardItemCount()); // => 0
 console.log(q2.canForward()); // => false
 
 ```
+
+# constructor options
+
+* maxItem: number. Default = Number.MAX_SAFE_INTEGER. Historiq instance can't store items over maxItem.
+* errorAtOverMax: boolean. Default = false. If true, add() more than maxItem will be error. Default setting only warn in console, and can't add().
+* defaultValue?: <type of element>. This will become 'oldest' item of history.
